@@ -14,6 +14,7 @@ from settings import MYSQL_USER, MYSQL_PASSWORD, MYSQL_DB
 
 # from auth import authentication
 import auth
+from utils import get_user_messages
 
 authentication = auth.authentication
 
@@ -55,4 +56,10 @@ def chatbotReply():
     return jsonify({"userId": 1, "id": ident, "message": reply, "isBot": True}), 200
 
 
-app.run(port=5002, debug=True)
+# @app.route('/medical/messages/<user_id>', methods=["GET"])
+# def getMessages(user_id):
+#     print(jsonify(get_user_messages(user_id)))
+#     return jsonify(get_user_messages(user_id)), 200
+
+
+app.run(port=5002, debug=True, use_reloader=False)

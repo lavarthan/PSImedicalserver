@@ -45,6 +45,11 @@ def login_user():
         print(user_token)
         return jsonify({"jwt_token": user_token, "message": "Successfully logged in: " + user_email})
     else:
-        Response(status=401)
+        if error_string == "email":
+            return jsonify({"error": "email"}), 401
+
+        elif error_string == "password":
+            return jsonify({"error": "password"}), 401
+        # Response(status=401)
 
 

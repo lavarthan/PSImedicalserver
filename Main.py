@@ -1,16 +1,16 @@
 print("Please be patient while system loading.....")
 
 # to avoid the unwanted warnings
-# import logging
-# import os
-# logging.disable(logging.WARNING)
-# os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
-# import warnings
-# warnings.simplefilter(action='ignore', category=FutureWarning)
-# import sys
-# stderr = sys.stderr
-# sys.stderr = open(os.devnull, 'w')
-# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+import logging
+import os
+logging.disable(logging.WARNING)
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+import sys
+stderr = sys.stderr
+sys.stderr = open(os.devnull, 'w')
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # import the libraries needed for the chatbot
 import nltk
