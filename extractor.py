@@ -1,6 +1,7 @@
 import nltk
 import spacy
 import en_core_web_sm
+
 from date_extractor import date_extractor
 
 
@@ -12,7 +13,6 @@ def preprocess(sent):
 
 nlp1 = en_core_web_sm.load()
 nlp2 = spacy.load("custom")
-
 
 def extractor(input):
     doc1 = nlp1(input)
