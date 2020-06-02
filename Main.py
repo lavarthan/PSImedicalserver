@@ -1,16 +1,17 @@
-print("Please be patient while system loading.....")
+
+
 
 # to avoid the unwanted warnings
 import logging
 import os
-logging.disable(logging.WARNING)
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+# logging.disable(logging.WARNING)
+# os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
-import sys
-stderr = sys.stderr
-sys.stderr = open(os.devnull, 'w')
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+# import sys
+# stderr = sys.stderr
+# sys.stderr = open(os.devnull, 'w')
+# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # import the libraries needed for the chatbot
 import nltk
@@ -23,11 +24,11 @@ import pandas as pd
 import random
 from sklearn.externals import joblib
 import json
+import tensorflow as tf
+from tensorflow.python.keras.backend import set_session
 
 # import the function from other files
 from extractor import extractor
-from speech_recognizer import text_to_speech
-from speech_recognizer import speech_to_text
 from database_details import insert_details
 from database_details import get_database_details
 
@@ -84,14 +85,25 @@ model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy
 try:
     # instead training the model every time we can save the model and can be used
     # model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=0)
+    # model._make_predict_function()
     # joblib.dump(model, 'my_model.pkl')
     # joblib.dump((words, ignore_words, classes, documents), 'my_data.pkl')
-    model = joblib.load('my_model.pkl')
+    tf_config = os.environ.get('TF_CONFIG')
+    sess = tf.Session(config=tf_config)
+    graph = tf.compat.v1.get_default_graph()
+
+    with open(f'my_model.pkl', 'rb') as f:
+        set_session(sess)
+        model = joblib.load('my_model.pkl')
+        model._make_predict_function()
     words, ignore_words, classes, documents = joblib.load('my_data.pkl')
 
 except:
     # in case we don't have the trained model we first train and save the model
     model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=0)
+    # model._make_predict_function()
+    # global graph
+    # graph = tf.get_default_graph()
     joblib.dump(model, 'my_model.pkl')
     joblib.dump((words, ignore_words, classes, documents), 'my_data.pkl')
 
@@ -118,7 +130,13 @@ def get_results(sentence):
     ERROR_THRESHOLD = 0.9
     try:
         input_data = pd.DataFrame([bow(sentence, words)], dtype=float, index=['input'])
-        results = model.predict([input_data])[0]
+        # print(input_data)
+        global sess
+        global graph
+        with graph.as_default():
+            set_session(sess)
+            results = model.predict([input_data])[0]
+        # print(results)
         results = [[i, r] for i, r in enumerate(results) if r > ERROR_THRESHOLD]
         # print(results)
         results.sort(key=lambda x: x[1], reverse=True)
@@ -134,27 +152,43 @@ def get_results(sentence):
         return [('noanswer', 0.870264)]
 
 
+context = 0
+
+
 def get_response(x, inp):
+    global context
     for i in range(len(intents['intents'])):
         if intents['intents'][i]["tag"] == x and i < 10:
-            print(random.choice(intents['intents'][i]["responses"]))
+            return (random.choice(intents['intents'][i]["responses"]))
         elif intents['intents'][i]["tag"] == x and i == 10:
-            print(random.choice(intents['intents'][i]["responses"]))
-            complain = input()
-            insert_details(complain)
+            context = 1
+            return (random.choice(intents['intents'][i]["responses"]))
+            # complain = input("enter you complain")
+            # insert_details(complain)
 
         elif intents['intents'][i]["tag"] == x and i > 10:
             details = extractor(inp)
             # print(details)
-            print(get_database_details(x, details))
+            return (get_database_details(x, details))
 
 
-def response(messageText):
-    try:
+def response(messageText,UserId=None):
+    global context
+    if context == 0:
         question = get_results(messageText)[0][0]
+
         return get_response(question, messageText)
-    except:
-        return "Error has occured with the Banking server. Sorry about that!"
+    else:
+        insert_details(messageText,UserId)
+        context = 0
+        return "Your complain filed successfully."
+
+    # try:
+    #     question = get_results(messageText)[0][0]
+    #     # print(question)
+    #     return get_response(question, messageText)
+    # except:
+    #     return "Error has occured with the Medical Service server. Sorry about that!"
 
 # print("Welcome to the Government Medical Inquiry Service")
 # choose = input("Choose the way you want to interact(type 1 or 2):\n1. Text\n2. Audio\n")

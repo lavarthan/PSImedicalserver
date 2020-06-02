@@ -18,11 +18,13 @@ def get_database_details(tag, details):
         if len(details) != 0:
             location = details[0][0]
             hospital_details = list(get_details("select * from hospital_details where district='%s'" % location))
+            print(hospital_details)
             answer = ""
             if len(hospital_details) != 0:
                 print("Here is the hospitals details in %s" % location)
                 for i in hospital_details:
-                    answer += "Name : " + i[1] + "\n" + "Address: " + i[2] + "\n" + "Services : " + i[3] + "\n"
+                    answer += "Name : " + i[1] + "\n" + "Address: " + i[2] + "\n" + "Services : " + i[
+                        3] + "\n" + "Location : " + i[5] + "\n "
             else:
                 answer = "Sorry we only provide hospital details by district name."
 
@@ -52,8 +54,8 @@ def get_database_details(tag, details):
     return answer
 
 
-def insert_details(complain):
+def insert_details(complain, user_id):
     cur = db.cursor()
-    cur.execute("insert into complain_details (name,complain) values ('user_name','%s')" % complain)
+    cur.execute("insert into complain_details (name,complain) values (%s,'%s')" % (user_id, complain))
     db.commit()
-    print("Your complain filed successfully.")
+    return "Your complain filed successfully."

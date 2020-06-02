@@ -39,7 +39,7 @@ def login_user():
     user_email = request.json["email"]
     user_password = request.json["password"]
 
-    user_token = validate_user(user_email, user_password)
+    user_token= validate_user(user_email, user_password)
 
     if user_token:
         print(user_token)

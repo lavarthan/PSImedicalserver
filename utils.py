@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from settings import JWT_SECRET_KEY
 from flask_mysqldb import MySQLdb
 from hashlib import pbkdf2_hmac
@@ -99,20 +101,24 @@ def validate_user(email, password):
         return False, "email"
 
 
-def write_message(id, user_id, message, is_bot, date_time):
-    if db_write(
-            """INSERT into telecom_chatbot_messages (id, user_id, message, isBot, date_time) VALUES (%s, %s, %s, %s,%s)""",
-            (id, user_id, message, is_bot, date_time),
-            ):
-        print("Successfully written to db")
-        return True
+def write_message(id, user_id, message, is_bot):
+    # cur = db.cursor()
+    # db.commit()
+    # if db_write("""INSERT into medical_chatbot_messages (id, user_id, message, isBot) VALUES (%s, %s, %s, %s)""",
+    # (id, user_id, message, is_bot)
+    # ):
+    cur = db.cursor()
+    cur.execute("insert into medical_chatbot_messages (id, user_id, message, isBot) values ('%s', %s, '%s', %s)" % (id, user_id, message, is_bot))
+    db.commit()
+    print("Successfully written to db")
+    return True
 
-    else:
-        return False
+    # else:
+    #     return False
 
 
 def get_user_messages(user_id):
-    messages = db_read("""SELECT * FROM telecom_chatbot_messages WHERE user_id = %s""", (user_id,))
+    messages = db_read("""SELECT * FROM medical_chatbot_messages WHERE user_id = %s""", (user_id,))
     for message in messages:
         if message["isBot"] == 0:
             message["isBot"] = False
