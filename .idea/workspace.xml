@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="35266fe3-277b-4406-ab28-966875a2e0f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractor.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractor.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,10 +141,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Python.extractor" />
+        <item itemvalue="Python.extractor" />
         <item itemvalue="Python.Main" />
         <item itemvalue="Python.Main" />
         <item itemvalue="Python.app" />
-        <item itemvalue="Python.database_details" />
       </list>
     </recent_temporary>
   </component>
