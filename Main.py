@@ -22,7 +22,7 @@ from keras.layers import Dense, Dropout
 from keras.optimizers import SGD
 import pandas as pd
 import random
-from sklearn.externals import joblib
+import joblib
 import json
 import tensorflow as tf
 from tensorflow.python.keras.backend import set_session
