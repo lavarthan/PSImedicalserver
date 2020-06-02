@@ -1,6 +1,5 @@
 import mysql.connector
-from mysql.connector import _version
-print(_version)
+
 
 from settings import MYSQL_USER, MYSQL_PASSWORD, MYSQL_DB, MYSQL_HOST
 
