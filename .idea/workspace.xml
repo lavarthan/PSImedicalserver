@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35266fe3-277b-4406-ab28-966875a2e0f9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dataset.json" beforeDir="false" afterPath="$PROJECT_DIR$/Dataset.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auth.py" beforeDir="false" afterPath="$PROJECT_DIR$/auth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database_details.py" beforeDir="false" afterPath="$PROJECT_DIR$/database_details.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/email_sender.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_data.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/my_data.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_model.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/my_model.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/speech_recognizer.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/style.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
