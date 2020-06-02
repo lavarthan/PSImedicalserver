@@ -223,8 +223,7 @@
 #
 
 
-ChatterBot==1.0.5
-Django==3.0.3
+
 Faker==0.9.1
 Flask==1.1.2
 Flask-Bcrypt==0.7.1
@@ -239,8 +238,7 @@ Keras==2.3.1
 Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.0
 Markdown==3.2.1
-MarkupSaf==1.1.1
-Naked==0.1.31
+MarkupSafe==1.1.1
 Pillow==7.0.0
 Pint==0.11
 Preferences==0.8
@@ -273,7 +271,7 @@ blis==0.4.1
 bunch==1.0.1
 cachetools==4.0.0
 catalogue==1.0.0
-certifi	==019.11.28
+certifi==019.11.28
 cffi==1.14.0
 chardet==3.0.4
 click==7.1.1
