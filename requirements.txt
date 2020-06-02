@@ -284,9 +284,7 @@ cycler==0.10.0
 cymem==2.0.3
 decorator==4.4.2
 defusedxml==0.6.0
-django-preferences==1.0.0
-django-request==1.5.5
-en-core-web-lg==2.2.5
+
 en-core-web-sm==2.2.5
 entrypoints==0.3
 fabric==2.5.0
@@ -385,6 +383,7 @@ six==1.14.0
 sklearn==0.0
 soupsieve==2.0
 spacy==2.2.4
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.5/en_core_web_sm-2.2.5.tar.gz
 spacy-symspell==0.1.2
 sqlparse==0.3.0
 srsly==1.0.2
