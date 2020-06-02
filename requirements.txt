@@ -284,8 +284,6 @@ cycler==0.10.0
 cymem==2.0.3
 decorator==4.4.2
 defusedxml==0.6.0
-
-en-core-web-sm==2.2.5
 entrypoints==0.3
 fabric==2.5.0
 future==0.18.2
