@@ -16,3 +16,4 @@ python-dotenv==0.13.0
 pyttsx3==2.87
 scikit_learn==0.23.1
 spacy==2.2.4
+tensorflow==1.14.0
