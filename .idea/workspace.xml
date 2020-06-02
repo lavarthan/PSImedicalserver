@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35266fe3-277b-4406-ab28-966875a2e0f9" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -189,9 +190,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="229" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591064628816" />
-    <state x="277" y="54" key="SettingsEditor" timestamp="1591068391588">
+    <state x="425" y="77" key="SettingsEditor" timestamp="1591068957239">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="54" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1591068391588" />
+    <state x="425" y="77" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1591068957239" />
   </component>
 </project>
