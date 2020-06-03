@@ -76,4 +76,4 @@ def getMessages(user_id):
     return jsonify(get_user_messages(user_id)), 200
 
 
-app.run(port=5002, debug=True, use_reloader=False)
+app.run(debug=True, use_reloader=False)

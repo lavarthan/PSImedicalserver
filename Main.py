@@ -172,7 +172,7 @@ def get_response(x, inp):
             return (get_database_details(x, details))
 
 
-def response(messageText,UserId=None):
+def response(messageText, UserId=None):
     global context
     if context == 0:
         question = get_results(messageText)[0][0]
