@@ -96,8 +96,7 @@ with open(f'my_model.pkl', 'rb') as f:
     set_session(sess)
     model = joblib.load('my_model.pkl')
     model._make_predict_function()
-words, ignore_words, classes, d
-ocuments = joblib.load('my_data.pkl')
+words, ignore_words, classes, documents = joblib.load('my_data.pkl')
 
 # except:
 #     # in case we don't have the trained model we first train and save the model
