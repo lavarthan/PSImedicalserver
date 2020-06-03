@@ -82,30 +82,31 @@ model.add(Dense(len(train_y[0]), activation='softmax'))
 
 sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
-try:
+# try:
     # instead training the model every time we can save the model and can be used
     # model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=0)
     # model._make_predict_function()
     # joblib.dump(model, 'my_model.pkl')
     # joblib.dump((words, ignore_words, classes, documents), 'my_data.pkl')
-    tf_config = os.environ.get('TF_CONFIG')
-    sess = tf.Session(config=tf_config)
-    graph = tf.compat.v1.get_default_graph()
+tf_config = os.environ.get('TF_CONFIG')
+sess = tf.compat.v1.Session(config=tf_config)
+graph = tf.compat.v1.get_default_graph()
 
-    with open(f'my_model.pkl', 'rb') as f:
-        set_session(sess)
-        model = joblib.load('my_model.pkl')
-        model._make_predict_function()
-    words, ignore_words, classes, documents = joblib.load('my_data.pkl')
+with open(f'my_model.pkl', 'rb') as f:
+    set_session(sess)
+    model = joblib.load('my_model.pkl')
+    model._make_predict_function()
+words, ignore_words, classes, d
+ocuments = joblib.load('my_data.pkl')
 
-except:
-    # in case we don't have the trained model we first train and save the model
-    model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=0)
-    # model._make_predict_function()
-    # global graph
-    # graph = tf.get_default_graph()
-    joblib.dump(model, 'my_model.pkl')
-    joblib.dump((words, ignore_words, classes, documents), 'my_data.pkl')
+# except:
+#     # in case we don't have the trained model we first train and save the model
+#     model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=0)
+#     # model._make_predict_function()
+#     # global graph
+#     # graph = tf.get_default_graph()
+#     joblib.dump(model, 'my_model.pkl')
+#     joblib.dump((words, ignore_words, classes, documents), 'my_data.pkl')
 
 
 def clean_up_sentence(sentence):

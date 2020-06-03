@@ -1,5 +1,3 @@
-from datetime import datetime
-
 from settings import JWT_SECRET_KEY
 from flask_mysqldb import MySQLdb
 from hashlib import pbkdf2_hmac
@@ -110,7 +108,6 @@ def write_message(id, user_id, message, is_bot):
     cur = db.cursor()
     cur.execute("insert into medical_chatbot_messages (id, user_id, message, isBot) values ('%s', %s, '%s', %s)" % (id, user_id, message, is_bot))
     db.commit()
-    print("Successfully written to db")
     return True
 
     # else:

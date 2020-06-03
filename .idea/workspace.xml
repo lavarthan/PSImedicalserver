@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="35266fe3-277b-4406-ab28-966875a2e0f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +50,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.app">
+  <component name="RunManager" selected="Python.utils">
     <configuration name="Database_connector" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MSI" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -124,9 +127,6 @@
       <module name="MSI" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
@@ -143,11 +143,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.utils" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.app" />
         <item itemvalue="Python.app" />
-        <item itemvalue="Python.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -193,9 +193,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1515" height="229" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1591083992561" />
-    <state x="425" y="77" key="SettingsEditor" timestamp="1591185803308">
+    <state x="425" y="77" key="SettingsEditor" timestamp="1591208131218">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="425" y="77" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1591185803308" />
+    <state x="425" y="77" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1591208131218" />
   </component>
 </project>
