@@ -1,3 +1,5 @@
+import os
+
 import Main as chatbot
 
 # Flask
@@ -76,4 +78,6 @@ def getMessages(user_id):
     return jsonify(get_user_messages(user_id)), 200
 
 
-app.run(debug=True, use_reloader=False)
+# app.run(debug=True, use_reloader=False)
+port = int(os.environ.get("PORT", 33507))
+app.run(host='0.0.0.0', port=port, use_reloader=False)
