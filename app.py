@@ -24,12 +24,12 @@ CORS(app)
 
 app.register_blueprint(authentication, url_prefix="/api/auth")
 
-# @cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
+@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
 # GET /, test route
-# @app.route('/', methods=["GET"])
-# # @cross_origin(supports_credentials=True)
-# def testGet():
-#     return jsonify({"userId": 1, "isBot": True}), 200
+@app.route('/', methods=["GET"])
+# @cross_origin(supports_credentials=True)
+def testGet():
+    return jsonify({"userId": 1, "isBot": True}), 200
 
 
 # POST /medical
