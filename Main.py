@@ -21,6 +21,9 @@ from tensorflow.python.keras.backend import set_session
 from extractor import extractor
 from database_details import insert_details
 from database_details import get_database_details
+import Database_connector
+
+Database_connector.mycursor()
 
 stemmer = LancasterStemmer()
 words = []

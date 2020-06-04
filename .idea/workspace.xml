@@ -52,7 +52,7 @@
       <recent name="E:\Users\NisanthanSelvaratnam\Documents\MSI" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.utils">
+  <component name="RunManager" selected="Python.Main">
     <configuration name="Database_connector" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="MSI" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -145,11 +145,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Main" />
         <item itemvalue="Python.utils" />
-        <item itemvalue="Python.details_get_testing" />
-        <item itemvalue="Python.details_get_testing" />
-        <item itemvalue="Python.database_details" />
         <item itemvalue="Python.Database_connector" />
+        <item itemvalue="Python.database_details" />
+        <item itemvalue="Python.utils" />
       </list>
     </recent_temporary>
   </component>
