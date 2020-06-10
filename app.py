@@ -25,7 +25,7 @@ CORS(app)
 app.register_blueprint(authentication, url_prefix="/api/auth")
 
 
-@cross_origin(origin='localhost', headers=['Content- Type', 'Authorization'])
+# @cross_origin(origin='localhost', headers=['Content- Type', 'Authorization'])
 # GET /, test route
 @app.route('/', methods=["GET"])
 # @cross_origin(supports_credentials=True)
@@ -62,5 +62,5 @@ def getMessages(user_id):
     return jsonify(get_user_messages(user_id)), 200
 
 
-if __name__ == '__main__':
-    app.run(port=5002)
+# if __name__ == '__main__':
+#     app.run(port=5002)
