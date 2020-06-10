@@ -78,10 +78,10 @@ sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 try:
     # instead training the model every time we can save the model and can be used
-    model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=0)
-    model._make_predict_function()
-    joblib.dump(model, 'my_model.pkl')
-    joblib.dump((words, ignore_words, classes, documents), 'my_data.pkl')
+    # model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=0)
+    # model._make_predict_function()
+    # joblib.dump(model, 'my_model.pkl')
+    # joblib.dump((words, ignore_words, classes, documents), 'my_data.pkl')
     tf_config = os.environ.get('TF_CONFIG')
     sess = tf.compat.v1.Session(config=tf_config)
     graph = tf.compat.v1.get_default_graph()
@@ -95,8 +95,7 @@ try:
 except:
     # in case we don't have the trained model we first train and save the model
     model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=0)
-    # model._make_predict_function()
-    # global graph
+
     graph = tf.get_default_graph()
     joblib.dump(model, 'my_model.pkl')
     joblib.dump((words, ignore_words, classes, documents), 'my_data.pkl')
