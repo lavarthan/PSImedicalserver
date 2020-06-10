@@ -9,7 +9,7 @@
         },
         {"tag": "thanks",
          "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me","have a nice day","take care","nice to talk with you"],
-         "responses": ["Happy to help!", "Any time!", "Thank you!"]
+         "responses": ["Happy to help!", "Any time!", "Welcome!", "Have a nice day!"]
         },
         {"tag": "noanswer",
          "patterns": ["hjjahjhsjhja","sjashjahsjhjahjshjahj","what is the process to change the room","what is the day toady?","what is the radius of sun?"],
@@ -18,7 +18,7 @@
         },
         {"tag": "options",
          "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How you can be helpful?", "What support is offered"],
-         "responses": ["I can guide you through Adverse drug reaction list, Blood pressure tracking, Hospitals and Pharmacies", "Offering support for Adverse drug reaction, Blood pressure, Hospitals and Pharmacies"]
+         "responses": ["I can give check the appointment details. \nI can give you the doctor details. \nI can give yoy the hospital details.\nI can give you details about some common diseases"]
         },
         {"tag": "Fever",
          "patterns": ["Open fever module", "temperature is high", "body is heating", "i'm having fever", "what can I do for the fever?","what are the solution to fever?"],
