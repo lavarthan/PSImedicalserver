@@ -1,5 +1,3 @@
-import os
-
 import Main as chatbot
 
 # Flask
@@ -26,7 +24,8 @@ CORS(app)
 
 app.register_blueprint(authentication, url_prefix="/api/auth")
 
-@cross_origin(origin='localhost',headers=['Content- Type','Authorization'])
+
+@cross_origin(origin='localhost', headers=['Content- Type', 'Authorization'])
 # GET /, test route
 @app.route('/', methods=["GET"])
 # @cross_origin(supports_credentials=True)
@@ -36,9 +35,7 @@ def testGet():
 
 # POST /medical
 @app.route('/medical', methods=["POST"])
-# @cross_origin(supports_credentials=True)
 def chatbotReply():
-    # context = chatbot.context
     message = request.get_json()
     print(message)
     id = message['id']
@@ -48,13 +45,7 @@ def chatbotReply():
 
     # write user message to database
     write_message(id, userId, messageText, False)
-
-    # if not userId in context.keys():
-    #     chatbot.context[userId]=""
-    # while userId not in context.keys():
-    #     pass
-    # reply, context = chatbot.response(messageText, userId, context)
-    reply = chatbot.response(messageText,userId)
+    reply = chatbot.response(messageText, userId)
     date_handler = lambda obj: (
         obj.isoformat()
         if isinstance(obj, (datetime.datetime, datetime.date))
@@ -62,25 +53,14 @@ def chatbotReply():
     )
     ident = json.dumps(datetime.datetime.now(), default=date_handler).strip('"')
     write_message(ident, userId, reply, True)
-    # return jsonify({"userId": 1, "id": ident, "message": reply, "isBot": True, "context": context}), 200
     return jsonify({"userId": userId, "id": ident, "message": reply, "isBot": True}), 200
 
 
-# @app.route('/medical/messages/<user_id>', methods=["GET"])
-# def getMessages(user_id):
-#     print(jsonify(get_user_messages(user_id)))
-#     return jsonify(get_user_messages(user_id)), 200
-
 @app.route('/medical/messages/<user_id>', methods=["GET"])
-# @cross_origin(supports_credentials=True)
 def getMessages(user_id):
     print(jsonify(get_user_messages(user_id)))
     return jsonify(get_user_messages(user_id)), 200
 
 
-# app.run(debug=True, use_reloader=False)
-# port = int(os.environ.get("PORT", 33507))
-# app.run(host='0.0.0.0', debug=True, port=port, use_reloader=False)
-
 if __name__ == '__main__':
-    app.run()
+    app.run(port=5002)

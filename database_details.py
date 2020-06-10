@@ -9,7 +9,7 @@ def get_database_details(tag, details):
         print(doctor_details)
         if len(doctor_details) != 0:
             print("Here is the information about Dr.%s" % name)
-            answer = "Name : " + doctor_details[0][1] + " " + "Working hospitals: " + doctor_details[0][2] + " " + \
+            answer = "Name : " + doctor_details[0][1] + " " + "Working hospitals: " + doctor_details[0][2] + "About " + \
                      doctor_details[0][3]
         else:
             print("sorry there is no information about Dr." + name)

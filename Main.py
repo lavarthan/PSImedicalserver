@@ -1,6 +1,7 @@
 # to avoid the unwanted warnings
 import os
 import warnings
+
 warnings.simplefilter(action='ignore', category=FutureWarning)
 
 # import the libraries needed for the chatbot
@@ -77,10 +78,10 @@ sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 try:
     # instead training the model every time we can save the model and can be used
-    # model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=0)
-    # model._make_predict_function()
-    # joblib.dump(model, 'my_model.pkl')
-    # joblib.dump((words, ignore_words, classes, documents), 'my_data.pkl')
+    model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=0)
+    model._make_predict_function()
+    joblib.dump(model, 'my_model.pkl')
+    joblib.dump((words, ignore_words, classes, documents), 'my_data.pkl')
     tf_config = os.environ.get('TF_CONFIG')
     sess = tf.compat.v1.Session(config=tf_config)
     graph = tf.compat.v1.get_default_graph()
@@ -151,18 +152,17 @@ context = 0
 def get_response(x, inp):
     global context
     for i in range(len(intents['intents'])):
-        if intents['intents'][i]["tag"] == x and i < 10:
-            return (random.choice(intents['intents'][i]["responses"]))
-        elif intents['intents'][i]["tag"] == x and i == 10:
+        if intents['intents'][i]["tag"] == x and i < 9:
+            return random.choice(intents['intents'][i]["responses"])
+        elif intents['intents'][i]["tag"] == x and i == 9:
             context = 1
-            return (random.choice(intents['intents'][i]["responses"]))
-            # complain = input("enter you complain")
-            # insert_details(complain)
+            return random.choice(intents['intents'][i]["responses"])
 
-        elif intents['intents'][i]["tag"] == x and i > 10:
+
+        elif intents['intents'][i]["tag"] == x and i > 9:
             details = extractor(inp)
             # print(details)
-            return (get_database_details(x, details))
+            return get_database_details(x, details)
 
 
 def response(messageText, UserId=None):
@@ -172,45 +172,6 @@ def response(messageText, UserId=None):
 
         return get_response(question, messageText)
     else:
-        insert_details(messageText,UserId)
+        insert_details(messageText, UserId)
         context = 0
         return "Your complain filed successfully."
-
-    # try:
-    #     question = get_results(messageText)[0][0]
-    #     # print(question)
-    #     return get_response(question, messageText)
-    # except:
-    #     return "Error has occured with the Medical Service server. Sorry about that!"
-
-# print("Welcome to the Government Medical Inquiry Service")
-# choose = input("Choose the way you want to interact(type 1 or 2):\n1. Text\n2. Audio\n")
-# if choose == "1":
-#     x = input("How can I help you?\n (type 'quit' to exit!)\n")
-#     while x != 'quit':
-#         # identify the correct tag
-#         question = get_results(x)[0][0]
-#         get_response(question, x)
-#         x = input("")
-# elif choose == "2":
-#     print("How can I help you?\n(say 'quit' to exit!)")
-#     text_to_speech("How can I help you?   (say 'quit' to exit!)")
-#     x = ""
-#     while x != 'quit':
-#
-#         x = speech_to_text()
-#         if x == "quit":
-#             pass
-#         elif x == "I couldn't hear anything":
-#             print("sorry I didn't catch that..\nsay again\n")
-#             text_to_speech("sorry I didn't catch that.. say again\n")
-#
-#         else:
-#             question = get_results(x)[0][0]
-#             print(get_response(question, x),"\n")
-#             text_to_speech(get_response(question, x))
-#             text_to_speech("Press Enter key to continue")
-#             input("\nPress any key to continue...")
-#
-# print("Thank you for using our service!")
-# text_to_speech("Thank you for using our service!")

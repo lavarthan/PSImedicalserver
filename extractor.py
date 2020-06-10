@@ -14,14 +14,15 @@ def preprocess(sent):
 nlp1 = en_core_web_sm.load()
 nlp2 = spacy.load("custom")
 
+
 def extractor(input):
     doc1 = nlp1(input)
     doc2 = nlp2(input)
     arr1 = [(X.text, X.label_) for X in doc1.ents]
-    arr2= [(X.text, X.label_) for X in doc2.ents]
+    arr2 = [(X.text, X.label_) for X in doc2.ents]
     # print(arr1)
     # print(arr2)
-    arr = list(set(arr1+arr2))
+    arr = list(set(arr1 + arr2))
 
     result = []
     for i in arr:

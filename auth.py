@@ -13,7 +13,6 @@ def register_user():
     user_email = request.json["email"]
     user_password = request.json["password"]
     created = datetime.datetime.utcnow()
-    # user_confirm_password = request.json["confirm_password"]
 
     if validate_user_input(
             "authentication", email=user_email, password=user_password
