@@ -23,7 +23,7 @@ pandas==1.0.4
 PyJWT==1.7.1
 python-dotenv==0.13.0
 Werkzeug==1.0.0
-tensorflow==1.14.0
+tensorflow==2.6.4
 # zipp==3.1.0
 
 # absl-py==0.9.0
@@ -204,7 +204,7 @@ nltk==3.4.5
 # srsly==1.0.2
 # symspellpy==6.5.2
 # tensorboard==1.14.0
-# tensorflow==1.14.0
+# tensorflow==2.6.4
 # tensorflow-estimator==1.14.0
 # termcolor==1.1.0
 # terminado==0.8.3
@@ -393,7 +393,7 @@ nltk==3.4.5
 # srsly==1.0.2
 # symspellpy==6.5.2
 # tensorboard==1.14.0
-# tensorflow==1.14.0
+# tensorflow==2.6.4
 # tensorflow-estimator==1.14.0
 # termcolor==1.1.0
 # terminado==0.8.3
