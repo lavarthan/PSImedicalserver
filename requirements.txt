@@ -1,4 +1,4 @@
-joblib==0.15.1
+joblib==1.2.0
 spacy==2.2.4
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.2.5/en_core_web_sm-2.2.5.tar.gz
 Flask==1.1.2
@@ -98,7 +98,7 @@ tensorflow==1.14.0
 # itsdangerous==1.1.0
 # jedi==0.17.0
 # Jinja2==2.11.2
-# joblib==0.15.1
+# joblib==1.2.0
 # JsonForm==0.0.2
 # jsonify==0.5
 # jsonschema==3.2.0
@@ -317,7 +317,7 @@ nltk==3.4.5
 # ipywidgets==7.5.1
 # itsdangerous==1.1.0
 # jedi==0.17.0
-# joblib==0.15.1
+# joblib==1.2.0
 # jsonify==0.5
 # jsonschema==3.2.0
 # jwt==1.0.0
